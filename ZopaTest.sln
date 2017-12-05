@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ZopaTest", "ZopaTest\ZopaTest.fsproj", "{920CCDDA-6C93-4C76-98A6-A7DAC4DE0C4B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ZopaTest.Tests", "ZopaTest.Tests\ZopaTest.Tests.fsproj", "{60EE2973-3072-4913-AE8B-56D32A0FFEAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZopaTest.EndToEndTests", "ZopaTest.EndToEndTests\ZopaTest.EndToEndTests.csproj", "{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{920CCDDA-6C93-4C76-98A6-A7DAC4DE0C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{920CCDDA-6C93-4C76-98A6-A7DAC4DE0C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{920CCDDA-6C93-4C76-98A6-A7DAC4DE0C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{920CCDDA-6C93-4C76-98A6-A7DAC4DE0C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60EE2973-3072-4913-AE8B-56D32A0FFEAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60EE2973-3072-4913-AE8B-56D32A0FFEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60EE2973-3072-4913-AE8B-56D32A0FFEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60EE2973-3072-4913-AE8B-56D32A0FFEAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

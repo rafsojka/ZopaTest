@@ -1,0 +1,1 @@
+Loan amount requested should be between 1000 and 15000 but it was 30000.

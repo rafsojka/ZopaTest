@@ -1,0 +1,1 @@
+Loan amount requested should be a multiplication of 100 but it was 8333.
