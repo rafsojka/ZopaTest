@@ -9,6 +9,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ZopaTest.Tests", "ZopaTest.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZopaTest.EndToEndTests", "ZopaTest.EndToEndTests\ZopaTest.EndToEndTests.csproj", "{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZopaTest.Nancy.SelfHost", "ZopaTest.Nancy.SelfHost\ZopaTest.Nancy.SelfHost.csproj", "{30F0B579-0AAC-4F99-B635-04F5AAFAB2C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{715A5A3F-9B52-4968-ADF5-C4271F32A4BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F0B579-0AAC-4F99-B635-04F5AAFAB2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F0B579-0AAC-4F99-B635-04F5AAFAB2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F0B579-0AAC-4F99-B635-04F5AAFAB2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F0B579-0AAC-4F99-B635-04F5AAFAB2C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

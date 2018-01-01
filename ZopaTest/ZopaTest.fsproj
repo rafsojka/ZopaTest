@@ -60,6 +60,7 @@
     <Compile Include="Calculations.fs" />
     <Compile Include="Quote.fs" />
     <Compile Include="Validation.fs" />
+    <Compile Include="Interop.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <Content Include="packages.config" />
