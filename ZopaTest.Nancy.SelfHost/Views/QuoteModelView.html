@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Requested amount: @Model.RequestedAmountFormatted<br />
+    @IfNot.HasRate
+        @Model.NoRateMessage
+    @EndIf
+    @If.HasRate
+        Rate: @Model.RateFormatted<br />
+        Monthly repayment: @Model.MonthlyRepaymentFormatted<br />
+        Total repayment: @Model.TotalRepaymentFormatted<br />
+    @EndIf
+</body>
+</html>
