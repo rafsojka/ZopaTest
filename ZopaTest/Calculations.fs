@@ -49,7 +49,7 @@ let calculateTheBestRateBasedOnOffers (offers:Offers) requestedAmount =
                 Some <| finalAccumulatedRate.Rate
 
 // formula taken from https://www.thebalance.com/loan-payment-calculations-315564
-let calculateRepayments (A:int) (R:decimal) (ppy:int) (y:int) =
+let calculateCompoundRepayments (A:int) (R:decimal) (ppy:int) (y:int) =
     let n = ppy * y
     let i = R/(decimal)ppy
     let D = ((pown (1.0M + i) n)- 1.0M) / (i*(pown (1.0M + i) n))
@@ -57,4 +57,10 @@ let calculateRepayments (A:int) (R:decimal) (ppy:int) (y:int) =
     P, P * (decimal)ppy * (decimal)y
 
 // specialised version for 36 month loans with payments per year and years "baked in"
-let calculaterRepaymentsFor36MonthLoan A R = calculateRepayments A R 12 3
+let calculateCompundRepaymentsFor36MonthLoan A R = calculateCompoundRepayments A R 12 3
+
+// based on from https://www.investopedia.com/ask/answers/042315/what-difference-between-compounding-interest-and-simple-interest.asp
+let calculateSimpleRepayments (A:int) (R:decimal) (ppy:int) (y:int) =
+    let totalRepayment = (decimal)A * R * (decimal)y + (decimal) A
+    let monthlyRepayment = totalRepayment / ((decimal)ppy * (decimal)y)
+    monthlyRepayment, totalRepayment

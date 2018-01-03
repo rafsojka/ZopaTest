@@ -1,0 +1,4 @@
+Requested amount: L1000
+Rate: 7.0%
+Monthly repayment: L33.61
+Total repayment: L1210

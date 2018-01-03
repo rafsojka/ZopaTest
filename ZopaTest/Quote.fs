@@ -23,7 +23,7 @@ let getQuote (offers:Offers) requestedAmount =
     | None -> Quote.Init requestedAmount
     // if we got the rate calculate the repayments
     | Some qr -> 
-        let repayments = calculaterRepaymentsFor36MonthLoan requestedAmount quoteRate.Value
+        let repayments = calculateCompundRepaymentsFor36MonthLoan requestedAmount quoteRate.Value
         { Quote.Init requestedAmount with
                     Rate = quoteRate
                     MonthlyRepayment = Some <| fst repayments

@@ -25,7 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\ZopaTest.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
-    <StartArguments>"..\..\market_offers\Market Data for Exercise.csv" 1000 12 3</StartArguments>
+    <StartArguments>"..\..\market_offers\Market Data for Exercise.csv" 1000 S 3 12</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

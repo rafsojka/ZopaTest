@@ -1,0 +1,1 @@
+"..\..\market_offers\Market Data for Exercise.csv" 1000 c 3 12

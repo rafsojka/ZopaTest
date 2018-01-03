@@ -58,8 +58,21 @@ type ZopaTestUnitTests() =
     [<TestCase(5500, 0.05, 12, 3, 164.8399341, 5934.237627)>]
     [<TestCase(10000, 0.1, 12, 3, 322.6718719, 11616.18739)>]
     [<TestCase(15000, 0.065, 12, 3, 459.7350431, 16550.46155)>]
-    member test.``calculates monthly repayment`` (A, R, ppy, y, expectedMonthlyRepayment, expectedTotalRepayment) =
-        let repayments = calculateRepayments A R ppy y
+    member test.``calculates compound repayments`` (A, R, ppy, y, expectedMonthlyRepayment, expectedTotalRepayment) =
+        let repayments = calculateCompoundRepayments A R ppy y
+
+        fst repayments      |> should (equalWithin 0.005) expectedMonthlyRepayment
+        snd repayments      |> should (equalWithin 0.005) expectedTotalRepayment
+
+    // test values calculated using compounded_loan_rate.xlsx
+    [<TestCase(18000, 0.06, 12, 3, 590, 21240)>]
+    [<TestCase(1100, 0.069, 12, 3, 36.88055556, 1327.7)>]
+    [<TestCase(1000, 0.07, 12, 3, 33.61111111, 1210)>]
+//    [<TestCase(5500, 0.05, 12, 3, 164.8399341, 5934.237627)>]
+//    [<TestCase(10000, 0.1, 12, 3, 322.6718719, 11616.18739)>]
+//    [<TestCase(15000, 0.065, 12, 3, 459.7350431, 16550.46155)>]
+    member test.``calculates simple repayments`` (A, R, ppy, y, expectedMonthlyRepayment, expectedTotalRepayment) =
+        let repayments = calculateSimpleRepayments A R ppy y
 
         fst repayments      |> should (equalWithin 0.005) expectedMonthlyRepayment
         snd repayments      |> should (equalWithin 0.005) expectedTotalRepayment

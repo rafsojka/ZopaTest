@@ -9,16 +9,28 @@ open ZopaTest.Orchestration
 [<EntryPoint>]
 let main argv = 
     try
-        let offersFile = argv.[0]
+        let offersFilePath = argv.[0]
         let loanAmount = Convert.ToInt32(argv.[1])
 
-        let paymentsPerYear, years = 
+        let interestTypeSymbol =
+            match argv.Length with
+            | len when len >= 3 -> 
+                Some <| argv.[2].ToLower()
+            | _ -> None
+
+        let years = 
             match argv.Length with
             | len when len >= 4 -> 
-                Some <| Convert.ToInt32(argv.[2]), Some <| Convert.ToInt32(argv.[3])
-            | _ -> None, None
+                Some <| Convert.ToInt32(argv.[3])
+            | _ -> None
 
-        printQuote <| getQuoteOrchestrated offersFile loanAmount paymentsPerYear years
+        let paymentsPerYear = 
+            match argv.Length with
+            | len when len >= 5 -> 
+                Some <| Convert.ToInt32(argv.[4])
+            | _ -> None
+
+        printQuote <| getQuoteOrchestrated offersFilePath loanAmount interestTypeSymbol paymentsPerYear years
     with
         | :? System.IO.FileNotFoundException as fnfex -> printfn "Market file \"%s\" was not found." argv.[0]
         | :? System.Exception as ex -> printfn "%s" ex.Message

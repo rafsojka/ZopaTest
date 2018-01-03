@@ -5,15 +5,32 @@ open ZopaTest.Calculations
 open ZopaTest.Quote
 open ZopaTest.Validation
 
-let getQuoteOrchestrated (offersFile : string) loanAmount paymentsPerYear years =
+type interestType = Compound | Simple
+
+let getQuoteOrchestrated (offersFile : string) loanAmount interestTypeSymbol paymentsPerYear years =
+    
     validateLoanAmount loanAmount
 
     let offers = Offers.Load(offersFile)
 
-    let paymentsPerYearVal, yearsVal =
-        match (paymentsPerYear, years) with
-        | (Some ppy, Some y) -> ppy, y
-        | _ -> 12, 3
+    let interestType =
+        match interestTypeSymbol with
+        | Some "s" -> Simple
+        | _ -> Compound
 
-    getQuoteFlexible offers loanAmount paymentsPerYearVal yearsVal calculateRepayments
+    let yearsVal =
+        match years with
+        | Some y -> y
+        | _ -> 3
+
+    let paymentsPerYearVal =
+        match paymentsPerYear with
+        | Some ppy -> ppy
+        | _ -> 12
+
+    match interestType with
+    | Compound -> getQuoteFlexible offers loanAmount paymentsPerYearVal yearsVal calculateCompoundRepayments
+    | Simple -> getQuoteFlexible offers loanAmount paymentsPerYearVal yearsVal calculateSimpleRepayments
+
+    
 
