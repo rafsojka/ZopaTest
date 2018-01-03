@@ -1,0 +1,12 @@
+﻿<html>
+  <body>
+    Requested amount: £{{model.RequestedAmount}}<br />
+    {% if model.Rate %}
+        Rate {{model.Rate.Value}}%<br />
+        Monthly repayment: £{{model.MonthlyRepayment.Value}}<br />
+        Total repayment: £{{model.TotalRepayment.Value}}<br />
+    {% else %}
+        It is not possible to provide a quote at this time.<br />
+    {% endif %}
+  </body>
+</html>

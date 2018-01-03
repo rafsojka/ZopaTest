@@ -9,10 +9,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ZopaTest.Suave</RootNamespace>
     <AssemblyName>ZopaTest.Suave</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <Name>ZopaTest.Suave</Name>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,8 +59,15 @@
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <Content Include="packages.config" />
+    <None Include="Quote.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="DotLiquid">
+      <HintPath>..\packages\DotLiquid.2.0.254\lib\net45\DotLiquid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FSharp.Core">
       <HintPath>..\packages\FSharp.Core.4.0.0.1\lib\net40\FSharp.Core.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +79,10 @@
     </Reference>
     <Reference Include="Suave">
       <HintPath>..\packages\Suave.2.2.1\lib\net40\Suave.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Suave.DotLiquid">
+      <HintPath>..\packages\Suave.DotLiquid.2.3.0-beta3\lib\net46\Suave.DotLiquid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
