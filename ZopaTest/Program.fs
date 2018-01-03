@@ -3,20 +3,22 @@
 open System
 open FSharp.Data
 
-open ZopaTest.Offers
-open ZopaTest.Calculations
 open ZopaTest.Quote
-open ZopaTest.Validation
+open ZopaTest.Orchestration
 
 [<EntryPoint>]
 let main argv = 
     try
-        let currentOffers = Offers.Load(argv.[0])
+        let offersFile = argv.[0]
         let loanAmount = Convert.ToInt32(argv.[1])
 
-        validateLoanAmount loanAmount
+        let paymentsPerYear, years = 
+            match argv.Length with
+            | len when len >= 4 -> 
+                Some <| Convert.ToInt32(argv.[2]), Some <| Convert.ToInt32(argv.[3])
+            | _ -> None, None
 
-        printQuote <| getQuote currentOffers loanAmount
+        printQuote <| getQuoteOrchestrated offersFile loanAmount paymentsPerYear years
     with
         | :? System.IO.FileNotFoundException as fnfex -> printfn "Market file \"%s\" was not found." argv.[0]
         | :? System.Exception as ex -> printfn "%s" ex.Message

@@ -29,6 +29,20 @@ let getQuote (offers:Offers) requestedAmount =
                     MonthlyRepayment = Some <| fst repayments
                     TotalRepayment = Some <| snd repayments }
 
+let getQuoteFlexible (offers:Offers) requestedAmount paymentsPerYear years repaymentsCalculateFunction =
+    // get possibly the best rate for quote
+    let quoteRate = calculateTheBestRateBasedOnOffers offers requestedAmount
+    // if it is impossible to get the rate for quote, return the default object
+    match quoteRate with
+    | None -> Quote.Init requestedAmount
+    // if we got the rate calculate the repayments
+    | Some qr -> 
+        let repayments = repaymentsCalculateFunction requestedAmount qr paymentsPerYear years
+        { Quote.Init requestedAmount with
+                    Rate = quoteRate
+                    MonthlyRepayment = Some <| fst repayments
+                    TotalRepayment = Some <| snd repayments }
+
 let printQuote (quote:Quote) =
     printfn "Requested amount: £%d" quote.RequestedAmount
     match quote.Rate with
