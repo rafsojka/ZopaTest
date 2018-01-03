@@ -4,6 +4,7 @@ open System
 open FSharp.Data
 
 open ZopaTest.Quote
+open ZopaTest.QuoteWithBorrowersData
 open ZopaTest.Orchestration
 
 [<EntryPoint>]
@@ -31,6 +32,10 @@ let main argv =
             | _ -> None
 
         printQuote <| getQuoteOrchestrated offersFilePath loanAmount interestTypeSymbol paymentsPerYear years
+
+        // using below would break E2E tests
+        // another parameter needed and possibly better encapsulation of Quote
+        //printQuoteWithBorrowersData <| getQuoteOrchestratedWithBorrowersData offersFilePath loanAmount interestTypeSymbol paymentsPerYear years
     with
         | :? System.IO.FileNotFoundException as fnfex -> printfn "Market file \"%s\" was not found." argv.[0]
         | :? System.Exception as ex -> printfn "%s" ex.Message

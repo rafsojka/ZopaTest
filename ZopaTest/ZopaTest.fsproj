@@ -58,7 +58,9 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Offers.fs" />
     <Compile Include="Calculations.fs" />
+    <Compile Include="CalculationsWithBorrowersData.fs" />
     <Compile Include="Quote.fs" />
+    <Compile Include="QuoteWithBorrowersData.fs" />
     <Compile Include="Validation.fs" />
     <Compile Include="Orchestration.fs" />
     <Compile Include="Program.fs" />
