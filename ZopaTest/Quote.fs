@@ -15,10 +15,8 @@ type Quote =
             MonthlyRepayment = None
             TotalRepayment = None }
 
-let getQuote (offers:Offers) requestedAmount =
-    // get possibly the best rate for quote
-    let quoteRate = calculateTheBestRateBasedOnOffers offers requestedAmount
-    // if it is impossible to get the rate for quote, return the default object
+let getQuote' requestedAmount quoteRate =
+     // if it is impossible to get the rate for quote, return the default object
     match quoteRate with
     | None -> Quote.Init requestedAmount
     // if we got the rate calculate the repayments
@@ -28,6 +26,18 @@ let getQuote (offers:Offers) requestedAmount =
                     Rate = quoteRate
                     MonthlyRepayment = Some <| fst repayments
                     TotalRepayment = Some <| snd repayments }
+
+let getQuote (offers:Offers) requestedAmount =
+    // get possibly the best rate for quote
+    let quoteRate = calculateTheBestRateBasedOnOffers offers requestedAmount
+    // get quote based on best rate
+    getQuote' requestedAmount quoteRate
+
+let getQuoteWithExposure (offers:Offers) requestedAmount exposure =
+    // get possibly the best rate for quote
+    let quoteRate = calculateTheBestRateBasedOnOffersWithExposure offers requestedAmount exposure
+    // get quote based on best rate
+    getQuote' requestedAmount quoteRate
 
 let printQuote (quote:Quote) =
     printfn "Requested amount: £%d" quote.RequestedAmount
